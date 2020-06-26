@@ -4,6 +4,3 @@ pandas
 bokeh
 flask
 pip
-dill
-jinja2
-simplejson
