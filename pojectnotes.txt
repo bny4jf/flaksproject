@@ -1,8 +1,0 @@
-Where do we stand with milestone project.
-
-1) Made changes to the repository, add this file, upload it to my github.
-2) Heroku: create the webpage
-
-3) Getting the data
-4) Interactivity (?)
-5) Bokeh
