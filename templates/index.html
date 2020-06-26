@@ -15,6 +15,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   </head>
   <body>
     <div class="container">
@@ -33,28 +34,41 @@
     </div>
 	<div class="container">
       <h1>Enter the ticker you would like to plot</h1>
+	<div>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-warning alert-dismissable" role="alert" >
+			{{ message }}
+			</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+</div>
+	  
+	  
       <form role="form" method='POST' action='/'>
         <div class="form-group">
           <input type="text" name="ticker" class="form-control" placeholder="GOOGL" style="max-width: 300px;" autofocus required>
         </div>
         <div class="checkbox">
-		<label><input type="checkbox" name="series"> Closing price</label>
+		<label><input type="checkbox" name="series" value="close"> Closing price</label>
 		</div>
        <div class="checkbox">
-		<label><input type="checkbox" name="series"> Opening price</label>
+		<label><input type="checkbox" name="series" value="open"]> Opening price</label>
 		</div>
        <div class="checkbox" >
-		<label><input type="checkbox" name="series"> Low</label>
+		<label><input type="checkbox" name="series" value="low"> Low</label>
 		</div>
        <div class="checkbox">
-		<label><input type="checkbox" name="series"> High</label>
+		<label><input type="checkbox" name="series" value="high"> High</label>
 		</div>		
 		<button type="submit" class="btn btn-default">Submit</button>
       </form>	  
       <br>
     </div>
 	<div class="container">
-          {% if fig %}
+          {% if script %}
             <div id="plot">
 				{{script|safe}}
 				{{div|safe}}
