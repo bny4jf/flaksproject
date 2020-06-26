@@ -13,7 +13,7 @@ def index():
         fig = ploting.plot_series(600, 300, ticker, ploting.getdata(ticker), series)
         script, div= components(fig)
     except:
-        print("Try another ticker symbol.")
+        flash("Try another ticker symbol.")
 
   return render_template('index.html')
 
